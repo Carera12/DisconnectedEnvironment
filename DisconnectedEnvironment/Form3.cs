@@ -13,15 +13,16 @@ namespace DisconnectedEnvironment
 {
     public partial class Form3 : Form
     {
-        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=CndrRera1";
+        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=Rera1234";
         private SqlConnection koneksi;
         private string nim, nama, alamat, jk, prodi;
         private DateTime tgl;
         BindingSource customersBindingSource = new BindingSource();
+        
         public Form3()
         {
             InitializeComponent();
-            koneksi = new SqlConnection();
+            koneksi = new SqlConnection(stringConnection);
             this.bnMahasiswa.BindingSource = this.customersBindingSource;
             refreshform();
         }
@@ -62,8 +63,9 @@ namespace DisconnectedEnvironment
             dtTanggalLahir.Value = DateTime.Today;
             txtNIM.Enabled = true;
             txtNama.Enabled = true;
-            txtAlamat.Enabled = true;
             cbxJenisKelamin.Enabled = true;
+            txtAlamat.Enabled = true;
+            txtAlamat.Enabled = true;
             dtTanggalLahir.Enabled = true;
             cbxProdi.Enabled = true;
             Prodicbx();
@@ -82,7 +84,6 @@ namespace DisconnectedEnvironment
             prodi = cbxProdi.Text;
             int hs = 0;
             koneksi.Open();
-
             string strs = "select id_prodi from dbo.Prodi where nama_prodi = @dd";
             SqlCommand cm = new SqlCommand(strs, koneksi);
             cm.CommandType = CommandType.Text;
@@ -117,13 +118,13 @@ namespace DisconnectedEnvironment
 
         private void refreshform()
         {
-            txtNIM.Enabled = false; 
+            txtNIM.Enabled = false;
             txtNama.Enabled = false;
             cbxJenisKelamin.Enabled = false;
             txtAlamat.Enabled = false;
             dtTanggalLahir.Enabled = false;
             cbxProdi.Enabled = false;
-            btnAdd.Enabled = false;
+            btnAdd.Enabled = true;
             btnSave.Enabled = false;
             btnClear.Enabled = false;
             clearBinding();
@@ -133,6 +134,18 @@ namespace DisconnectedEnvironment
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void txtNIM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            fm.Show();
+            this.Hide();
         }
 
         private void Form3_Load(object sender, EventArgs e)
@@ -163,12 +176,7 @@ namespace DisconnectedEnvironment
                 new Binding("Text", this.customersBindingSource, "nama_prodi", true));
             koneksi.Close();
         }
-        private void FormDataMahasiswa_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form1 fm = new Form1();
-            fm.Show();
-            this.Hide();
-        }
+        
         private void Form3_Load()
         {
             throw new NotImplementedException();

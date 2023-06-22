@@ -13,13 +13,14 @@ namespace DisconnectedEnvironment
 {
     public partial class Form4 : Form
     {
-        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=CndrRera1";
+        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=Rera1234";
         private SqlConnection koneksi;
+        
 
         public Form4()
         {
             InitializeComponent();
-            koneksi = new SqlConnection();
+            koneksi = new SqlConnection(stringConnection);
             refreshform();
 
         }
@@ -78,7 +79,7 @@ namespace DisconnectedEnvironment
 
         private void Form4_Load(object sender, EventArgs e)
         {
-
+            
         }
 
         private void cbxNama_Click(object sender, EventArgs e)
@@ -88,7 +89,7 @@ namespace DisconnectedEnvironment
             string strs = "select NIM from dbo.Mahasiswa where nama_mahasiswa = @nm";
             SqlCommand cm = new SqlCommand(strs, koneksi);
             cm.CommandType = CommandType.Text;
-            cm.Parameters.Add(new SqlParameter("@nm", cbxNama.Text));
+            cm.Parameters.Add(new SqlParameter("@nm", NamaMahasiswa.Text));
             SqlDataReader dr = cm.ExecuteReader();
             while (dr.Read())
             {
@@ -143,9 +144,10 @@ namespace DisconnectedEnvironment
                 int finalKodeStatusInt = totalStatusMahasiswa + 1;
                 kodeStatus = Convert.ToString(finalKodeStatusInt);
             }
+
             string queryString = "insert into dbo.status_mahasiswa(id_status, nim, status_mahasiswa, tahun_masuk)" +
                 "values(@NIM, @sm, @tm)";
-            SqlCommand cmd = new SqlCommand(queryStrings, koneksi);
+            SqlCommand cmd = new SqlCommand(queryString, koneksi);
             cmd.CommandType = CommandType.Text;
 
             cmd.Parameters.Add(new SqlParameter("ids", kodeStatus));
@@ -165,12 +167,7 @@ namespace DisconnectedEnvironment
             refreshform();
         }
 
-        private void FormDataStatusMahasiswa_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            Form1 fm = new Form1();
-            fm.Show();
-            this.Hide();
-        }
+        
         private void refreshform()
         {
             cbxNama.Enabled = false;
@@ -183,8 +180,43 @@ namespace DisconnectedEnvironment
             btnSave.Enabled = false;
             btnClear.Enabled = false;
             btnAdd.Enabled = true;
-        }
+        }
 
+        private void cbxNama_SelectedIndexChanged(object sender, EventArgs e)
+        {
 
+        }
+
+        private void cbxStatusMahasiswa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cbxTahunMasuk_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 fm = new Form1();
+            fm.Show();
+            this.Hide();
+        }
+
+        private void NIM_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StatusMahasiswa_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TahunMasuk_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

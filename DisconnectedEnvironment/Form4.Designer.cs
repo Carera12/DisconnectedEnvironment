@@ -29,18 +29,19 @@
         private void InitializeComponent()
         {
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cbxStatusMahasiswa = new System.Windows.Forms.Label();
-            this.cbxNama = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxTahunMasuk = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.StatusMahasiswa = new System.Windows.Forms.Label();
+            this.NamaMahasiswa = new System.Windows.Forms.Label();
+            this.txtNIM = new System.Windows.Forms.Label();
+            this.TahunMasuk = new System.Windows.Forms.Label();
+            this.cbxTahunMasuk = new System.Windows.Forms.ComboBox();
+            this.cbxStatusMahasiswa = new System.Windows.Forms.ComboBox();
+            this.cbxNama = new System.Windows.Forms.ComboBox();
             this.btnClear = new System.Windows.Forms.Button();
             this.btnSave = new System.Windows.Forms.Button();
             this.btnOpen = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
-            this.txtNIM = new System.Windows.Forms.Label();
+            this.NIM = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,67 +55,72 @@
             this.dataGridView1.Size = new System.Drawing.Size(467, 204);
             this.dataGridView1.TabIndex = 0;
             // 
-            // cbxStatusMahasiswa
+            // StatusMahasiswa
             // 
-            this.cbxStatusMahasiswa.AutoSize = true;
-            this.cbxStatusMahasiswa.Location = new System.Drawing.Point(182, 342);
-            this.cbxStatusMahasiswa.Name = "cbxStatusMahasiswa";
-            this.cbxStatusMahasiswa.Size = new System.Drawing.Size(115, 16);
-            this.cbxStatusMahasiswa.TabIndex = 1;
-            this.cbxStatusMahasiswa.Text = "Status mahasiswa";
+            this.StatusMahasiswa.AutoSize = true;
+            this.StatusMahasiswa.Location = new System.Drawing.Point(182, 342);
+            this.StatusMahasiswa.Name = "StatusMahasiswa";
+            this.StatusMahasiswa.Size = new System.Drawing.Size(115, 16);
+            this.StatusMahasiswa.TabIndex = 1;
+            this.StatusMahasiswa.Text = "Status mahasiswa";
+            this.StatusMahasiswa.Click += new System.EventHandler(this.StatusMahasiswa_Click);
             // 
-            // cbxNama
+            // NamaMahasiswa
             // 
-            this.cbxNama.AutoSize = true;
-            this.cbxNama.Location = new System.Drawing.Point(182, 266);
-            this.cbxNama.Name = "cbxNama";
-            this.cbxNama.Size = new System.Drawing.Size(115, 16);
-            this.cbxNama.TabIndex = 2;
-            this.cbxNama.Text = "Nama Mahasiswa";
-            this.cbxNama.Click += new System.EventHandler(this.cbxNama_Click);
+            this.NamaMahasiswa.AutoSize = true;
+            this.NamaMahasiswa.Location = new System.Drawing.Point(182, 266);
+            this.NamaMahasiswa.Name = "NamaMahasiswa";
+            this.NamaMahasiswa.Size = new System.Drawing.Size(115, 16);
+            this.NamaMahasiswa.TabIndex = 2;
+            this.NamaMahasiswa.Text = "Nama Mahasiswa";
+            this.NamaMahasiswa.Click += new System.EventHandler(this.cbxNama_Click);
             // 
-            // label3
+            // txtNIM
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(371, 304);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 16);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "txtNIM";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            this.txtNIM.AutoSize = true;
+            this.txtNIM.Location = new System.Drawing.Point(371, 304);
+            this.txtNIM.Name = "txtNIM";
+            this.txtNIM.Size = new System.Drawing.Size(43, 16);
+            this.txtNIM.TabIndex = 3;
+            this.txtNIM.Text = "txtNIM";
+            this.txtNIM.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // TahunMasuk
+            // 
+            this.TahunMasuk.AutoSize = true;
+            this.TahunMasuk.Location = new System.Drawing.Point(182, 380);
+            this.TahunMasuk.Name = "TahunMasuk";
+            this.TahunMasuk.Size = new System.Drawing.Size(88, 16);
+            this.TahunMasuk.TabIndex = 4;
+            this.TahunMasuk.Text = "Tahun Masuk";
+            this.TahunMasuk.Click += new System.EventHandler(this.TahunMasuk_Click);
             // 
             // cbxTahunMasuk
             // 
-            this.cbxTahunMasuk.AutoSize = true;
-            this.cbxTahunMasuk.Location = new System.Drawing.Point(182, 380);
+            this.cbxTahunMasuk.FormattingEnabled = true;
+            this.cbxTahunMasuk.Location = new System.Drawing.Point(374, 380);
             this.cbxTahunMasuk.Name = "cbxTahunMasuk";
-            this.cbxTahunMasuk.Size = new System.Drawing.Size(88, 16);
-            this.cbxTahunMasuk.TabIndex = 4;
-            this.cbxTahunMasuk.Text = "Tahun Masuk";
+            this.cbxTahunMasuk.Size = new System.Drawing.Size(121, 24);
+            this.cbxTahunMasuk.TabIndex = 5;
+            this.cbxTahunMasuk.SelectedIndexChanged += new System.EventHandler(this.cbxTahunMasuk_SelectedIndexChanged);
             // 
-            // comboBox1
+            // cbxStatusMahasiswa
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(374, 380);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(121, 24);
-            this.comboBox1.TabIndex = 5;
+            this.cbxStatusMahasiswa.FormattingEnabled = true;
+            this.cbxStatusMahasiswa.Location = new System.Drawing.Point(374, 342);
+            this.cbxStatusMahasiswa.Name = "cbxStatusMahasiswa";
+            this.cbxStatusMahasiswa.Size = new System.Drawing.Size(121, 24);
+            this.cbxStatusMahasiswa.TabIndex = 6;
+            this.cbxStatusMahasiswa.SelectedIndexChanged += new System.EventHandler(this.cbxStatusMahasiswa_SelectedIndexChanged);
             // 
-            // comboBox2
+            // cbxNama
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(374, 342);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 24);
-            this.comboBox2.TabIndex = 6;
-            // 
-            // comboBox3
-            // 
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(374, 266);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(121, 24);
-            this.comboBox3.TabIndex = 7;
+            this.cbxNama.FormattingEnabled = true;
+            this.cbxNama.Location = new System.Drawing.Point(374, 266);
+            this.cbxNama.Name = "cbxNama";
+            this.cbxNama.Size = new System.Drawing.Size(121, 24);
+            this.cbxNama.TabIndex = 7;
+            this.cbxNama.SelectedIndexChanged += new System.EventHandler(this.cbxNama_SelectedIndexChanged);
             // 
             // btnClear
             // 
@@ -156,32 +162,44 @@
             this.btnAdd.UseVisualStyleBackColor = true;
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // txtNIM
+            // NIM
             // 
-            this.txtNIM.AutoSize = true;
-            this.txtNIM.Location = new System.Drawing.Point(182, 304);
-            this.txtNIM.Name = "txtNIM";
-            this.txtNIM.Size = new System.Drawing.Size(154, 16);
-            this.txtNIM.TabIndex = 12;
-            this.txtNIM.Text = "Nomer Induk Mahasiswa";
+            this.NIM.AutoSize = true;
+            this.NIM.Location = new System.Drawing.Point(182, 304);
+            this.NIM.Name = "NIM";
+            this.NIM.Size = new System.Drawing.Size(154, 16);
+            this.NIM.TabIndex = 12;
+            this.NIM.Text = "Nomer Induk Mahasiswa";
+            this.NIM.Click += new System.EventHandler(this.NIM_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(26, 415);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(53, 23);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "close";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.txtNIM);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.NIM);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnOpen);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnClear);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.cbxTahunMasuk);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.cbxNama);
             this.Controls.Add(this.cbxStatusMahasiswa);
+            this.Controls.Add(this.cbxTahunMasuk);
+            this.Controls.Add(this.TahunMasuk);
+            this.Controls.Add(this.txtNIM);
+            this.Controls.Add(this.NamaMahasiswa);
+            this.Controls.Add(this.StatusMahasiswa);
             this.Controls.Add(this.dataGridView1);
             this.Name = "Form4";
             this.Text = "Data Status Mahasiswa";
@@ -195,17 +213,18 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label cbxStatusMahasiswa;
-        private System.Windows.Forms.Label cbxNama;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label cbxTahunMasuk;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label StatusMahasiswa;
+        private System.Windows.Forms.Label NamaMahasiswa;
+        private System.Windows.Forms.Label txtNIM;
+        private System.Windows.Forms.Label TahunMasuk;
+        private System.Windows.Forms.ComboBox cbxTahunMasuk;
+        private System.Windows.Forms.ComboBox cbxStatusMahasiswa;
+        private System.Windows.Forms.ComboBox cbxNama;
         private System.Windows.Forms.Button btnClear;
         private System.Windows.Forms.Button btnSave;
         private System.Windows.Forms.Button btnOpen;
         private System.Windows.Forms.Button btnAdd;
-        private System.Windows.Forms.Label txtNIM;
+        private System.Windows.Forms.Label NIM;
+        private System.Windows.Forms.Button button1;
     }
 }

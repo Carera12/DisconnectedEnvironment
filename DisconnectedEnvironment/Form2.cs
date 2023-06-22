@@ -13,13 +13,13 @@ namespace DisconnectedEnvironment
 {
     public partial class Form2 : Form
     {
-        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=CndrRera1";
+        private string stringConnection = "data source=RARAIMUT\\CANDRARAKU;" + "database=Activity6PABD;User ID=sa;Password=Rera1234";
         private SqlConnection koneksi;
 
         public void refreshform()
         {
-            Text = "";
-            Enabled = false;
+            nmp.Text = "";
+            nmp.Enabled = false;
             btnSave.Enabled = false;
             btnClear.Enabled = false;
         }
@@ -27,7 +27,7 @@ namespace DisconnectedEnvironment
         public Form2()
         {
             InitializeComponent();
-            koneksi = new SqlConnection();
+            koneksi = new SqlConnection(stringConnection);
             refreshform();
         }
 
@@ -79,7 +79,7 @@ namespace DisconnectedEnvironment
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Enabled = true;
+            nmp.Enabled = true;
             btnSave.Enabled = true;
             btnClear.Enabled = true;
         }
@@ -98,12 +98,18 @@ namespace DisconnectedEnvironment
             dataGridView1.DataSource = ds.Tables[0];
             koneksi.Close();
         }
-        private void FormDataProdi_FormClosed(object sender, FormClosedEventArgs e)
+        
+
+        private void button1_Click_1(object sender, EventArgs e)
         {
-            Form1 hu = new Form1();
-            hu.Show();
+            Form1 fm = new Form1();
+            fm.Show();
             this.Hide();
         }
 
+        private void nmp_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
