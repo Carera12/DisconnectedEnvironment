@@ -149,10 +149,14 @@
             // cbxJenisKelamin
             // 
             this.cbxJenisKelamin.FormattingEnabled = true;
+            this.cbxJenisKelamin.Items.AddRange(new object[] {
+            "L",
+            "P"});
             this.cbxJenisKelamin.Location = new System.Drawing.Point(276, 146);
             this.cbxJenisKelamin.Name = "cbxJenisKelamin";
             this.cbxJenisKelamin.Size = new System.Drawing.Size(54, 24);
             this.cbxJenisKelamin.TabIndex = 10;
+            this.cbxJenisKelamin.SelectedIndexChanged += new System.EventHandler(this.cbxJenisKelamin_SelectedIndexChanged);
             // 
             // dtTanggalLahir
             // 

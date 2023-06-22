@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.StatusMahasiswa = new System.Windows.Forms.Label();
             this.NamaMahasiswa = new System.Windows.Forms.Label();
@@ -42,7 +43,12 @@
             this.btnAdd = new System.Windows.Forms.Button();
             this.NIM = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.aktivity6PABDDataSet = new DisconnectedEnvironment.Aktivity6PABDDataSet();
+            this.mahasiswaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.mahasiswaTableAdapter = new DisconnectedEnvironment.Aktivity6PABDDataSetTableAdapters.mahasiswaTableAdapter();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aktivity6PABDDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // dataGridView1
@@ -54,6 +60,7 @@
             this.dataGridView1.RowTemplate.Height = 24;
             this.dataGridView1.Size = new System.Drawing.Size(467, 204);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // StatusMahasiswa
             // 
@@ -78,6 +85,7 @@
             // txtNIM
             // 
             this.txtNIM.AutoSize = true;
+            this.txtNIM.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.mahasiswaBindingSource, "nim", true));
             this.txtNIM.Location = new System.Drawing.Point(371, 304);
             this.txtNIM.Name = "txtNIM";
             this.txtNIM.Size = new System.Drawing.Size(43, 16);
@@ -107,6 +115,9 @@
             // cbxStatusMahasiswa
             // 
             this.cbxStatusMahasiswa.FormattingEnabled = true;
+            this.cbxStatusMahasiswa.Items.AddRange(new object[] {
+            "Aktif",
+            "Tidak aktif"});
             this.cbxStatusMahasiswa.Location = new System.Drawing.Point(374, 342);
             this.cbxStatusMahasiswa.Name = "cbxStatusMahasiswa";
             this.cbxStatusMahasiswa.Size = new System.Drawing.Size(121, 24);
@@ -182,6 +193,20 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // aktivity6PABDDataSet
+            // 
+            this.aktivity6PABDDataSet.DataSetName = "Aktivity6PABDDataSet";
+            this.aktivity6PABDDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // mahasiswaBindingSource
+            // 
+            this.mahasiswaBindingSource.DataMember = "mahasiswa";
+            this.mahasiswaBindingSource.DataSource = this.aktivity6PABDDataSet;
+            // 
+            // mahasiswaTableAdapter
+            // 
+            this.mahasiswaTableAdapter.ClearBeforeFill = true;
+            // 
             // Form4
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -205,6 +230,8 @@
             this.Text = "Data Status Mahasiswa";
             this.Load += new System.EventHandler(this.Form4_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aktivity6PABDDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.mahasiswaBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,5 +253,8 @@
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Label NIM;
         private System.Windows.Forms.Button button1;
+        private Aktivity6PABDDataSet aktivity6PABDDataSet;
+        private System.Windows.Forms.BindingSource mahasiswaBindingSource;
+        private Aktivity6PABDDataSetTableAdapters.mahasiswaTableAdapter mahasiswaTableAdapter;
     }
 }
